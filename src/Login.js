@@ -38,10 +38,10 @@ class Login extends Component{
             <div className='login-page'>
                 <div className='login-box'>
                     <h1>Login: </h1>
-                    <form onSubmit={this.submit}>
-                        <input type='text' placeholder="Username" value={this.state.user} onChange={this.handleUserChange}  />
-                        <input type='password' placeholder="Password" value={this.state.password} onChange={this.handlePassChange} />
-                        <button type="submit"value="Submit">Submit</button>
+                    <form className='login-form'onSubmit={this.submit}>
+                        <input className='login-input' type='text' placeholder="Username" value={this.state.user} onChange={this.handleUserChange}  />
+                        <input className='login-input'type='password' placeholder="Password" value={this.state.password} onChange={this.handlePassChange} />
+                        <button className='login-button'type="submit"value="Submit">Submit</button>
                     </form>
                 </div>
             </div>

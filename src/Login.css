@@ -13,13 +13,13 @@
     width:500px;
 
 }
-input{
+.login-input{
     font-size:18px;
     padding: 10px;
     width:70%;
 }
 
-form{
+.login-form{
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -27,7 +27,7 @@ form{
     justify-content:space-evenly;
 }
 
-button{
+.login-button{
     width: 75%;
     padding: 10px;
     background: transparent;
