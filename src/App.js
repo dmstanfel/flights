@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import Nav from './Nav';
+import Page from './Page';
 import './App.css';
 
-class App extends Component {
+class App extends Component { 
+
   render() {
-    return (
-      <div>
-        <Nav current="Search" />
-      </div>
-    );
+    return <Page loggedIn={false} />;
   }
 }
 
