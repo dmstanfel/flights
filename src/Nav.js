@@ -1,13 +1,20 @@
 import React, {Component} from 'react';
 import NavItem from './Nav-Item';
 import './Nav.css'
+
 class Nav extends Component {
     constructor(props){
         super(props);
+        // Contains all of the nav items which will control what is rendered by the app.
         this.handleNavClick = this.handleNavClick.bind(this);
-        this.state = { current:[1,0,0] }
+        // The current tab will have the value of current[id] == 1 while all others equal to 0
+        // Start off with the search being the current open page.
+        this.state = { current: [1,0,0] }
     }
+
     handleNavClick(e){
+        // Navigation click handler, resets the state and as a result re-renders the page
+        // if clicked is not the current tab.
         let idClick = parseInt(e.target.id);
         let newState= [0,0,0];
         if (this.state.current[idClick] === 0){
@@ -15,7 +22,9 @@ class Nav extends Component {
             this.setState({current : newState});
         }
     }
+
     render(){
+        // Render this HTML, necessary with all React components.
         return(
             <div className="nav">
                 <div className="nav-item nohov">
