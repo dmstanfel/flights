@@ -20,6 +20,7 @@ class Nav extends Component {
         if (this.state.current[idClick] === 0){
             newState[idClick] = 1;
             this.setState({current : newState});
+            this.props.changepage(idClick)
         }
     }
 
@@ -28,10 +29,10 @@ class Nav extends Component {
         return(
             <div className="nav">
                 <div className="nav-item nohov">
-                    Disco Flights
+                    Dream Flights
                 </div>
                 <NavItem id='0' onClick={this.handleNavClick} name="Search" current={this.state.current[0]}/>
-                <NavItem id='1' onClick={this.handleNavClick} name="Itineraries" current={this.state.current[1]}/>
+                <NavItem id='1' onClick={this.handleNavClick} name="Wish List" current={this.state.current[1]}/>
                 <NavItem id='2' onClick={this.handleNavClick} name="Browse ?" current={this.state.current[2]}/>
                
             </div>

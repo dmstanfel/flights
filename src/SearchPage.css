@@ -1,24 +1,69 @@
 #s-header{
     margin: 48px;
 }
+.autocomplete{
+    position:relative;
+    display:inline-block;
+    max-width: 24%;
+}
 .form-div{
-    padding: 0 48px;
-    height: 48px;
-    align-items: center;
+    width: 80%;
     display: flex;
+    justify-content: space-evenly;
+    height: 71px;
+    max-height: 500px;
 }
 .s-contain{
     display: flex;
+    align-items: center;
     flex-direction: column;
     height: calc(100vh);
 }
 .s-form{
     width: 100%;
     display: flex;
-    justify-content: space-between;
 }
 
 .s-input{
+    /**width: 20%;**/
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 18px;
+    font-family: 'Helvetica';
+    max-width:89%;
+}
+.s-input.dt{
+    padding: 7px 10px 7px 8px;
+    max-width:89%;
+}
+
+.res-div{
+    height: calc(100vh);
+    display:flex;
+}
+.filt-div{
+    display:flex;
     width: 20%;
-    font-size: 24px;
+}
+.tix-div{
+    display:flex;
+    width: 80%;
+}
+.auto-items{
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-width:98%;
+}
+.auto-item{
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
 }

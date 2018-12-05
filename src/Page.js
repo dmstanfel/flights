@@ -14,16 +14,15 @@ class Page extends Component{
         super(props);
         // Submit button binder
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.page_change = this.page_change.bind(this);
         // State only cares about state of login at the moment.
-        this.state = {loggedIn: this.props.loggedIn, current:'Search'};
+        this.state = {loggedIn: this.props.loggedIn, current:0};
     }
 
     // When a user submits there username and password from the child Login component
     // Generate a HTTP POST request using axios
     // Update the state when response comes back.
     handleSubmit(user, password){
-        console.log(user);
-        console.log(password);
         axios({
             method: 'post',
             withCredentials: true,
@@ -40,13 +39,15 @@ class Page extends Component{
         }).catch((error)=>{
             console.log(error);
         });
-
+    }
+    page_change(page){
+        this.setState({current: page});
     }
     choose_page(){
         let page;
-        if (this.state.current === 'Search'){
+        if (this.state.current === 0){
             page = <SearchPage />
-        }else if (this.state.current === 'Itineraries'){
+        }else if (this.state.current === 1){
             page = <ItinPage />
         }else{
             page = <BrowsePage />
@@ -59,7 +60,7 @@ class Page extends Component{
         if(this.state.loggedIn){
             return(
                 <div>
-                    <Nav/>
+                    <Nav changepage={this.page_change}/>
                     {page}
                 </div>
             );
