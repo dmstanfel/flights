@@ -37,7 +37,7 @@ class Page extends Component{
             //console.log(response);
             this.setState({ loggedIn: true });
         }).catch((error)=>{
-            console.log(error);
+            alert("Login failed try again.")
         });
     }
     page_change(page){

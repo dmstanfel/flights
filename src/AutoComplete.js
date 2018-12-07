@@ -7,22 +7,25 @@ class AutoComplete extends Component{
         this.state = { from: [], value:'' };
     }
     airportFill(e){
-        let value = e.target.value;
+        let val = e.target.value;
+        let val_upper = val.toUpperCase();
         let airports = this.props.data;
         let filtered = airports.filter((item)=>{
-            return item.city.includes(value) || item.code === value || item.name.includes(value);
+            return (item.city.substr(0, val.length).toUpperCase() === val_upper || 
+            item.code.substr(0, val.length).toUpperCase() === val_upper || 
+            item.name.substr(0, val.length).toUpperCase() === val_upper);
         });
-        this.setState({ value: e.target.value, from: filtered });
+        this.setState({ val_id: 0, value: e.target.value, from: filtered });
     }
-    pull_val(city_info){
-        console.log(city_info);
-    }
+
     appendAutoComplete(){
         if (this.state.from.length !== this.props.data.length){
             let auto_div = <div className='auto-items'> 
                 {this.state.from.map((item)=>{
                     let city_info = item.code + '-' +item.city;
-                    return (<div key={item.id} className='auto-item' onClick={()=>{this.setState({value: city_info, from: []})}}>
+                    return (<div key={item.id} className='auto-item' onClick={()=>{
+                            this.props.get_id(this.props.from_to, item.id);
+                            this.setState({ value: city_info, from: []})}}>
                                 {city_info}
                                 <input type='hidden' value={city_info}/>
                             </div>)

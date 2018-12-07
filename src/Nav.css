@@ -16,6 +16,7 @@ Feel free to poke at this as you please. **/
     transition: .7s;
     font-size: 18px;
     border-bottom: 5px solid #56bbf9;
+    cursor: pointer;
 }
 .nav-item.curr{
     border-bottom: 5px solid palegoldenrod;
