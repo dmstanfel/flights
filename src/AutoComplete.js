@@ -22,11 +22,12 @@ class AutoComplete extends Component{
         if (this.state.from.length !== this.props.data.length){
             let auto_div = <div className='auto-items'> 
                 {this.state.from.map((item)=>{
-                    let city_info = item.code + '-' +item.city;
+                    let city_info = item.code + ' - ' +item.city;
                     return (<div key={item.id} className='auto-item' onClick={()=>{
                             this.props.get_id(this.props.from_to, item.id);
                             this.setState({ value: city_info, from: []})}}>
                                 {city_info}
+                                <div className='airp-name'>{item.name}</div>
                                 <input type='hidden' value={city_info}/>
                             </div>)
                 })}
