@@ -40,6 +40,7 @@
     max-width:89%;
 }
 
+/*
 .res-div{
     height: calc(100vh);
     display:flex;
@@ -52,6 +53,8 @@
     display:flex;
     width: 80%;
 }
+*/
+
 .auto-items{
     position: absolute;
     border: 1px solid #d4d4d4;
