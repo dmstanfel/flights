@@ -1,0 +1,8 @@
+﻿.ticket {
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    border: groove;
+    border-color: #56bbf9;
+    background-color: palegoldenrod;
+}
