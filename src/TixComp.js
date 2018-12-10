@@ -49,8 +49,15 @@ class TixComp extends Component{
         }
         return print_date;
     }
+    flight_length(){
+        let dep = new Date(this.props.depart);
+        let arr = new Date(this.props.arrive);
+        let time_diff = Math.abs(arr - dep) /  60000;
+        let hrs = Math.floor(time_diff / 60);
+        let mins = time_diff % 60;
+        return(<p>{hrs.toString() + 'h '+ mins.toString() +'m'}</p>)
+    }
     render(){
-        console.log(this.state);
         return (
             <div className="ticket">
                 <div className='tix-left'> 
@@ -63,8 +70,8 @@ class TixComp extends Component{
                             <p>nonstop</p>
                         </div>
                         <div className='tix-length'>
-                            <p>2h 30m</p>
-                            <p>RDU-LGA</p>
+                            {this.flight_length()}
+                            <p>{this.props.from} - {this.props.to}</p>
                         </div>
                     </div>
                 </div>

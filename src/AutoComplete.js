@@ -24,7 +24,7 @@ class AutoComplete extends Component{
                 {this.state.from.map((item)=>{
                     let city_info = item.code + ' - ' +item.city;
                     return (<div key={item.id} className='auto-item' onClick={()=>{
-                            this.props.get_id(this.props.from_to, item.id);
+                            this.props.get_id(this.props.from_to, item.id, item.code);
                             this.setState({ value: city_info, from: []})}}>
                                 {city_info}
                                 <div className='airp-name'>{item.name}</div>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import NavItem from './Nav-Item';
-import './Nav.css'
+import img from './03.png'; 
+import './Nav.css';
 
 class Nav extends Component {
     constructor(props){
@@ -29,7 +30,7 @@ class Nav extends Component {
         return(
             <div className="nav">
                 <div className="nav-item nohov">
-                    Dream Flights
+                    <img className ='logo' src={img} alt='Dream Flights' />
                 </div>
                 <NavItem id='0' onClick={this.handleNavClick} name="Search" current={this.state.current[0]}/>
                 <NavItem id='1' onClick={this.handleNavClick} name="Wish List" current={this.state.current[1]}/>

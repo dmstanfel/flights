@@ -7,11 +7,12 @@ class ResultComp extends Component{
 
     constructor(props){
         super(props);
-        //this.state = { flights: this.props.data };
+        this.state = { flights: this.props.data };
     } 
     addTickets(){
-        return this.props.data.map((item,index) => {
-            return <TixComp key={index} airline={item.airline_id} depart = {item.departs_at} arrive = {item.arrives_at} />
+        return this.state.flights.map((item,index) => {
+            return <TixComp key={index} from ={this.props.from} to={this.props.to} 
+            airline={item.airline_id} depart = {item.departs_at} arrive = {item.arrives_at} />
         })
     }
     render(){

@@ -24,11 +24,11 @@ class SearchPage extends Component{
             //console.log(error);
         });
     }
-    get_id(from_to, id){
+    get_id(from_to, id, code){
         if (from_to === 0){
-            this.setState({from: id});
+            this.setState({from: id, from_code: code });
         }else{
-            this.setState({to: id});
+            this.setState({to: id, to_code: code });
         }
     }
     find_flight(){
@@ -38,9 +38,10 @@ class SearchPage extends Component{
         axios({
             method: 'get',
             withCredentials: true,
-            url: API_URL + 'flights?filter[departure_id]='+from+'&filter[arrival_id]='+to, 
+            url: API_URL + 'flights?filter[departure_id]='+from+'&filter[arrival_id]='+to
         }).then((response)=>{
             let data = response.data;
+            console.log(data);
             for(let i = 0; i < data.length; i++){
                 data[i].instances = [];
                 if(this.state.departs.length > 0){
@@ -50,24 +51,28 @@ class SearchPage extends Component{
                         url: API_URL + 'instances?filter[flight_id]='+data[i].id + '&filter[date]='+this.state.departs
                     }).then((response)=>{
                         let inst = response.data;
-                        //console.log(response);
+                        console.log(response.data);
                         data[i].date = this.state.departs;
                         for( let j = 0; j < inst.length; j++){
                             if(inst[j].is_cancelled === false){
                                 data[i].instances.push(inst[j].id);
                             }
                         }
-                        let flight_arr = this.state.flights.slice();
-                        flight_arr.push(data[i]);
-                        this.setState({ flights: flight_arr  });
+                        let flight_arr = this.state.flights;
+                        if (data[i].instances.length > 0){
+                            flight_arr.push(data[i]);
+                            this.setState({ flights: flight_arr  });
+                        }
+                        
                     })
                 }
             }
         });
     }
     results(){
+        console.log(this.state.flights);
         if (this.state.flights.length > 0){
-            return <ResultComp data={this.state.flights} />
+            return <ResultComp from={this.state.from_code} to={this.state.to_code} data={this.state.flights} />
         }else{
             return (<div className='res-div'>
                         <h2>Sorry, No Results to Show!</h2>
