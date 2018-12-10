@@ -19,14 +19,14 @@ Feel free to poke at this as you please. **/
     cursor: pointer;
 }
 .nav-item.curr{
-    border-bottom: 5px solid palegoldenrod;
-    color:palegoldenrod;
+    border-bottom: 5px solid #ffdf93;
+    color:#ffdf93;
 }
 
 .nav-item.nohov:hover{
     color: white;
 }
 .nav-item:hover{
-    color: palegoldenrod;
+    color: #ffdf93;
     /**color: #f4b740; **/
 }

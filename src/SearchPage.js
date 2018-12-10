@@ -18,10 +18,10 @@ class SearchPage extends Component{
             withCredentials: true,
             url: API_URL + 'airports'
         }).then((response) => {
-            console.log(response);
+            //console.log(response);
             this.setState({airports: response.data});
         }).catch((error) => {
-            console.log(error);
+            //console.log(error);
         });
     }
     get_id(from_to, id){
@@ -65,9 +65,17 @@ class SearchPage extends Component{
             }
         });
     }
-   
+    results(){
+        if (this.state.flights.length > 0){
+            return <ResultComp data={this.state.flights} />
+        }else{
+            return (<div className='res-div'>
+                        <h2>Sorry, No Results to Show!</h2>
+                    </div>);
+        }
+    }
     render(){
-        console.log(this.state);
+        //console.log(this.state);
         return(<div className='s-contain'>
            <h1 id='s-header'>Search for hundreds of flights at the click of a button.</h1>
            <div className='form-div'> 
@@ -78,7 +86,7 @@ class SearchPage extends Component{
                 </div>
                 <button onClick={this.find_flight} className='filt-butt' type="submit"value="Submit">Go</button>
            </div>
-           <ResultComp data={this.state.flights} />
+           {this.results()}
         </div>)
     }
 }

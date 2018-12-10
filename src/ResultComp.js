@@ -7,28 +7,28 @@ class ResultComp extends Component{
 
     constructor(props){
         super(props);
-        //this.state = { flights: props.data, };
+        //this.state = { flights: this.props.data };
     } 
-
+    addTickets(){
+        return this.props.data.map((item,index) => {
+            return <TixComp key={index} airline={item.airline_id} depart = {item.departs_at} arrive = {item.arrives_at} />
+        })
+    }
     render(){
-                    console.log("hello world");
-                    console.log(this.props.data);
-                    //this.props.data.items.forEach(function(item) {
-                    //     console.log(item.airline_number);
-//});
+        //console.log(this.props.data);
+        //this.props.data.items.forEach(function(item) {
+        //console.log(item.airline_number)
         return (
             <div className='res-div'>
                 <div className='filt-div'>
-                    <h2> filt div </h2>
+                    <h2> Filter By: </h2>
                     <FiltComp />
                     <FiltComp />
                     <FiltComp />
                 </div>
                 <div className='tix-div'>
-                    <h2> tix div </h2>
-                    <TixComp />
-                    <TixComp />
-                    <TixComp />
+                    <h2> Results: </h2>
+                    {this.addTickets()}
                 </div>
             </div>
         );

@@ -3,6 +3,8 @@
     display: flex;
     height: auto;
     max-height: 500px;
+    top: 232px;
+    position: absolute;
     padding: 40px;
 }
 
@@ -14,7 +16,9 @@
 
 .tix-div {
     width: inherit;
-    display: table-row;
+    display: flex;
+    flex-direction: column;
     padding: 10px;
     text-align: center;
+    height: calc(100vh);
 }
