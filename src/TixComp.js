@@ -3,11 +3,12 @@ import {API_URL} from './Const';
 import axios from 'axios';
 import './TixComp.css';
 
+
 class TixComp extends Component{
 
     constructor(props){
         super(props);
-        this.state = {airline: ''};
+        this.state = { airline: '' };
         console.log(this.props.airline);
     }
     componentDidMount(){
