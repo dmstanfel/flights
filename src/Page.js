@@ -16,9 +16,23 @@ class Page extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
         this.page_change = this.page_change.bind(this);
         // State only cares about state of login at the moment.
-        this.state = {loggedIn: this.props.loggedIn, current:0};
+        this.state = {loggedIn: this.props.loggedIn, current:0, coords:[], airports:[]};
     }
-
+    componentDidMount(){
+        axios({
+            method:'get',
+            withCredentials: true,
+            url: API_URL + 'airports'
+        }).then((response)=>{
+            let data = response.data;
+            let coordi = [];
+            for (let i = 0; i < data.length; i++){
+                let  coord = {lat: Number(data[i].latitude), lng: Number(data[i].longitude), name: data[i].code + ' - ' +data[i].name}
+                coordi.push(coord)
+            }
+            this.setState({coords: coordi, airports: data});
+        })
+    }
     // When a user submits there username and password from the child Login component
     // Generate a HTTP POST request using axios
     // Update the state when response comes back.
@@ -46,11 +60,11 @@ class Page extends Component{
     choose_page(){
         let page;
         if (this.state.current === 0){
-            page = <SearchPage />
+            page = <SearchPage airports = {this.state.airports}/>
         }else if (this.state.current === 1){
             page = <ItinPage />
         }else{
-            page = <BrowsePage />
+            page = <BrowsePage coords={this.state.coords} />
         }
         return page;
     }

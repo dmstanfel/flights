@@ -12,7 +12,7 @@ class ResultComp extends Component{
 
     } 
     addTickets(){
-        return this.state.flights.map((item,index) => {
+        return this.state.flights.map((item, index)=>{
             let am = this.state.filtAM;
             let pm = this.state.filtPM;
             let departTime = new Date(item.departs_at);

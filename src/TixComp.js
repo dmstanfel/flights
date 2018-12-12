@@ -10,7 +10,6 @@ class TixComp extends Component{
         super(props);
         this.state = {airline: ''};
         this.add_ticket = this.add_ticket.bind(this);
-        console.log(this.props);
     }
     componentDidMount(){
         axios({
@@ -51,14 +50,6 @@ class TixComp extends Component{
         }
         return print_date;
     }
-    flight_length(){
-        let dep = new Date(this.props.depart);
-        let arr = new Date(this.props.arrive);
-        let time_diff = Math.abs(arr - dep) /  60000;
-        let hrs = Math.floor(time_diff / 60);
-        let mins = time_diff % 60;
-        return(<p>{hrs.toString() + 'h '+ mins.toString() +'m'}</p>)
-    }
     add_ticket(){
         axios({
             method: 'post',
@@ -94,8 +85,7 @@ class TixComp extends Component{
                         <div className='tix-type'>
                             <p>nonstop</p>
                         </div>
-                        <div className='tix-length'>
-                            {this.flight_length()}
+                        <div className='tix-type'>
                             <p>{this.props.from} - {this.props.to}</p>
                         </div>
                     </div>

@@ -2,8 +2,10 @@
   "name": "flights",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://www.cs.unc.edu/Courses/comp426-f18/users/dstanfel/project/build",
   "dependencies": {
     "axios": "^0.18.0",
+    "google-maps-react": "^2.0.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-motion": "^0.5.2",
