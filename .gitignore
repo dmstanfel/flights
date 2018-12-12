@@ -3,6 +3,7 @@
 #vscode
 /.vscode
 
+
 # dependencies
 /node_modules
 /.pnp
@@ -13,6 +14,7 @@
 
 # production
 /build
+/project
 
 # misc
 .DS_Store
