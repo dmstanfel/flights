@@ -1,7 +1,8 @@
 import requests
 import json
 import arrow
-
+# DO NOT RUN THIS UNLESS YOU CLEAR INSTANCES TABLE
+# PACKS INSTANCES FULL FOR EVERY FLIGHT FROM EVERY AIRPORT FOR 30 DAYS
 URL = 'http://comp426.cs.unc.edu:3001/'
 def main():
     r = requests.post(URL + 'sessions', json={"user":{"username":"dstanfel","password":"password1"}})

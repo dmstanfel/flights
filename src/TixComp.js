@@ -8,7 +8,7 @@ class TixComp extends Component{
     constructor(props){
         super(props);
         this.state = {airline: ''};
-        console.log(this.props.airline);
+        this.add_ticket = this.add_ticket.bind(this);
     }
     componentDidMount(){
         axios({
@@ -57,6 +57,15 @@ class TixComp extends Component{
         let mins = time_diff % 60;
         return(<p>{hrs.toString() + 'h '+ mins.toString() +'m'}</p>)
     }
+    add_ticket(){
+        axios({
+            method: 'post',
+            withCredentials: true,
+            url: API_URL + 'tickets'
+        }).then((response)=>{
+            alert('Your ticket has been added to your wish list!');
+        })
+    }
     render(){
         return (
             <div className="ticket">
@@ -76,6 +85,9 @@ class TixComp extends Component{
                     </div>
                 </div>
                 <div className='tix-right'>
+                    <div className='add-wish'>
+                        <button onClick={this.add_ticket} className='wish-butt'>Add to Wish List</button>
+                    </div>
                 </div>
             </div>
         );

@@ -11,7 +11,7 @@ class ResultComp extends Component{
     } 
     addTickets(){
         return this.state.flights.map((item,index) => {
-            return <TixComp key={index} from ={this.props.from} to={this.props.to} 
+            return <TixComp key={index} instance = {item.instances} from ={this.props.from} to={this.props.to} 
             airline={item.airline_id} depart = {item.departs_at} arrive = {item.arrives_at} />
         })
     }
