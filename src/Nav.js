@@ -34,7 +34,7 @@ class Nav extends Component {
                 </div>
                 <NavItem id='0' onClick={this.handleNavClick} name="Search" current={this.state.current[0]}/>
                 <NavItem id='1' onClick={this.handleNavClick} name="Wish List" current={this.state.current[1]}/>
-                <NavItem id='2' onClick={this.handleNavClick} name="Browse ?" current={this.state.current[2]}/>
+                <NavItem id='2' onClick={this.handleNavClick} name="Browse" current={this.state.current[2]}/>
                
             </div>
         )
