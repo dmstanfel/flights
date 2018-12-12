@@ -72,7 +72,7 @@ class SearchPage extends Component{
     results(){
         console.log(this.state.flights);
         if (this.state.flights.length > 0){
-            return <ResultComp from={this.state.from_code} to={this.state.to_code} data={this.state.flights} />
+            return <ResultComp from={this.state.from_code} to={this.state.to_code} data={this.state.flights} date ={this.state.departs} />
         }else{
             return (<div className='res-div'>
                         <h2>Sorry, No Results to Show!</h2>

@@ -20,14 +20,14 @@ class ResultComp extends Component{
 
             //display flights departing in the AM
             if (am === 1 && pm === 1) {
-                return <TixComp key={index} instance = {item.instances} from ={this.props.from} to={this.props.to} 
-                airline={item.airline_id} depart = {item.departs_at} arrive = {item.arrives_at} />
+                return <TixComp key={index} flight={item.id} instance = {item.instances} from ={this.props.from} to={this.props.to} 
+                airline={item.airline_id} depart = {item.departs_at} arrive = {item.arrives_at} date={this.props.date} />
             } else if (am === 0 && pm === 1 && departHr > 11) {
-                return <TixComp key={index} instance = {item.instances} from ={this.props.from} to={this.props.to} 
-                airline={item.airline_id} depart = {item.departs_at} arrive = {item.arrives_at} />
+                return <TixComp key={index} flight={item.id} instance = {item.instances} from ={this.props.from} to={this.props.to} 
+                airline={item.airline_id} depart = {item.departs_at} arrive = {item.arrives_at} date={this.props.date}/>
             } else if (am === 1 && pm === 0 && departHr < 12) {
-                return <TixComp key={index} instance = {item.instances} from ={this.props.from} to={this.props.to} 
-                airline={item.airline_id} depart = {item.departs_at} arrive = {item.arrives_at} />
+                return <TixComp key={index} flight={item.id} instance = {item.instances} from ={this.props.from} to={this.props.to} 
+                airline={item.airline_id} depart = {item.departs_at} arrive = {item.arrives_at} date = {this.props.date}/>
             }
         })
     }
